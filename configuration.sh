@@ -3,7 +3,7 @@ set -e
 
 #Install ruby and bundler
 apt-get update
-apt-get install -y ruby-full build-essential git
+apt-get install -y ruby-full build-essential git wget
 gem install --no-rdoc --no-ri bundler
 
 #Install MongoDB
