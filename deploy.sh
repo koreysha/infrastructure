@@ -2,10 +2,10 @@
 set -e
 
 #Get stable vercion of raddit
-git clone https://github.com/upsysops/raddit.git
+git clone https://github.com/upsysops/raddit.git /home/vagrant/raddit/
 
 #Instal gems
-cd raddit
+cd /home/vagrant/raddit
 bundle install
 
 #Start reddit service
