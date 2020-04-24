@@ -32,6 +32,26 @@ resource "google_compute_firewall" "raddit" {
   source_ranges = ["0.0.0.0/0"]
 }
 
+resource "google_compute_backend_bucket" "raddit_store" {
+  name        = "tf-raddit-backend-bucket"
+  description = "Contains beautiful terrafom state"
+  bucket_name = google_storage_bucket.raddit_bucket.name
+  enable_cdn  = true
+}
+
+resource "google_storage_bucket" "raddit_bucket" {
+  name     = "tf-raddit-store-bucket"
+  location = "EU"
+}
+
+terraform {
+  backend "gcs" {
+    bucket  = "tf-raddit-store-bucket"
+    prefix  = "terraform/state"
+  }
+}
+
+
 provider "google" {
   project = "carbide-primer-275017"
   region  = "europe-west1"
