@@ -16,5 +16,3 @@ ADD raddit/ $APP_HOME
 
 # Run reddit
 CMD ["puma"]
-#CMD ["sudo systemctl start raddit"]
-#CMD ["sudo systemctl enable raddit"]
